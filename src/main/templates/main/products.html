@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Products - Pakistan Marbles
+{% endblock %}
+
+{% block content %}
+<section class="cover imagebg height-80 space--lg" data-scrim-top="8">
+    <div class="background-image-holder">
+      <img alt="background" src="{% static 'img/product-cover-2.png' %}" />
+    </div>
+    <div class="container pos-vertical-center">
+        <div class="row">
+            <div class="col-sm-12">
+                    <!--<div class="col-sm-6 col-md-5 col-md-offset-1">-->
+                        <h2> PRODUCTS RANGE</h2>
+                        <p class="lead">
+Pakistan Marbles expansive range of products offers all customers extraordinary choices for creating spaces that reflect their unique personalities and aspirations. Attention to detail – in design, in manufacturing, in ecological awareness – is key to bringing these sustainable, healthy, economical products to market.
+                        </p>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+<section class="space--sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="masonry masonry--tiles">
+                    <div class="masonry-filter-container">
+                        <span>Category:</span>
+                        <div class="masonry-filter-holder">
+                            <li class="masonry__filters" data-filter-all-text="All Categories"></li>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="masonry__container">
+                          {% for product in products %}
+                            <div class="masonry__item col-sm-4" data-masonry-filter="{{ product.category }}">
+                                <div class="product product--tile bg--secondary text-center">
+                                    <a href="{{ product.image.url }}" data-lightbox="Gallery 1">
+                                        <img alt="Image" src="{{ product.image.url }}"  style="border-radius: 6px;" height="260px;" width="600px;" />
+                                    </a>
+                                    <a class="block" href="#">
+                                        <div>
+                                            <h5 class="bold">{{ product.name }}</h5></br>
+                                            <span style="line-height:1.35714286em;">{{ product.description }}</span>
+                                        </div>
+                                        <!--<div>
+                                            <span class="h4 inline-block type-strikethrough">$899</span>
+                                            <span class="h4 inline-block">$799</span>
+                                        </div>-->
+                                    </a>
+                                </div>
+                            </div>
+                          {% endfor %}
+                            <!--end item-->
+
+                        </div>
+                        <!--end masonry container-->
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end masonry-->
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Contact - Pakistan Marbles
+{% endblock %}
+
+{% block content %}
+<section class="cover imagebg height-80 text-center" data-scrim-top="8">
+    <div class="background-image-holder">
+      <img alt="background" src="{% static 'img/contact-cover-3.jpg' %}"/>
+    </div>
+    <div class="container pos-vertical-center">
+        <div class="row">
+            <div class="col-sm-10 col-md-8">
+                <h2>Get In Touch</h2>
+                <p class="lead">
+
+                </p>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+<section class="text-center ">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <!--<div class="map-container border/-round" data-maps-api-key="AIzaSyCfo_V3gmpPm1WzJEC9p_sRbgvyVbiO83M" data-address="123 Rathdowne street, Carlton Victoria" data-marker-title="Stack" data-map-style="[{&quot;featureType&quot;:&quot;landscape&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#FFBB00&quot;},{&quot;saturation&quot;:43.400000000000006},{&quot;lightness&quot;:37.599999999999994},{&quot;gamma&quot;:1}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#FFC200&quot;},{&quot;saturation&quot;:-61.8},{&quot;lightness&quot;:45.599999999999994},{&quot;gamma&quot;:1}]},{&quot;featureType&quot;:&quot;road.arterial&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#FF0300&quot;},{&quot;saturation&quot;:-100},{&quot;lightness&quot;:51.19999999999999},{&quot;gamma&quot;:1}]},{&quot;featureType&quot;:&quot;road.local&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#FF0300&quot;},{&quot;saturation&quot;:-100},{&quot;lightness&quot;:52},{&quot;gamma&quot;:1}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#0078FF&quot;},{&quot;saturation&quot;:-13.200000000000003},{&quot;lightness&quot;:2.4000000000000057},{&quot;gamma&quot;:1}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#00FF6A&quot;},{&quot;saturation&quot;:-1.0989010989011234},{&quot;lightness&quot;:11.200000000000017},{&quot;gamma&quot;:1}]}]" data-map-zoom="15"></div>-->
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+                    <h3>Opposie New Timber Market Multan Road
+                        <br />Bahawalpur, Pakistan</h3>
+                    <p class="lead">
+                        <i class="icon icon--xs icon-Email color--primary" style="margin-right:10px;"></i>
+                        <a href="#">hello@stack.net</a>
+                        <br /> <i class="icon icon--xs icon-Phone color--primary" style="margin-right:5px;"></i> +613 4827 2294
+                    </p>
+                    <p class="lead">
+                        Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.
+                    </p>
+                    <p class="lead">
+                        We are open from 9am &mdash; 5pm week days.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+<section class="text-center ">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-7">
+                <div class="row">
+                    <form method="POST" id="contact-form" class="text-left" >
+                        {% csrf_token %}
+                        <div class="col-sm-6">
+                            <label>Your Name:</label>
+                            {{ form.name }}
+                            <!--<input type="text" name="name" class="validate-required" />-->
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Email Address:</label>
+                            {{ form.email }}
+                            <!--<input type="email" name="email" class="validate-required validate-email" />-->
+                        </div>
+                        <div class="col-sm-12">
+                            <label>Message:</label>
+                            {{ form.message }}
+                            <!--<textarea rows="6" name="message" class="validate-required"></textarea>-->
+                        </div>
+                        <div class="col-sm-5 col-md-4">
+                            <button type="submit" name="submit" class="btn btn--primary type--uppercase">Send Enquiry</button>
+                        </div>
+                        {% if messages %}
+                          <ul class="messages">
+                            {% for message in messages %}
+                              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                               {% if "html_safe" in message.tags %}
+                                 {{ message|safe }}
+                               {% else %}
+                                 {{ message }}
+                               {% endif %}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                    </form>
+                </div>
+                <!--end of row-->
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script>
+/*$(document).on('submit', '#contact-form', function(event){
+  event.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: '/contact/submit/',
+    data: {
+      name: $['#name'].val(),
+      email: $['#email'].val(),
+      message: $['#message'].val(),
+      csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+    },
+    success: function(){
+      alert('successfully submitted');
+    },
+    error: function(){
+      alert('Email already exist');
+    }
+  });
+});*/
+</script>
+{% endblock %}

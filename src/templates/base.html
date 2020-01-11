@@ -1,0 +1,245 @@
+{% load static %}
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site Description Here">
+
+    <link rel="shortcut icon" href="{% static 'img/profile.ico' %}" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/stack-interface.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/socicon.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/lightbox.min.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/flickity.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/iconsmind.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/jquery.steps.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/font-roboto.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i%7CMaterial+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet"/>
+</head>
+<body class="">
+<a id="start"></a>
+<div class="nav-container ">
+    <div class="bar bar--sm visible-xs" >
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3 col-sm-2">
+                    <a href="index.html">
+                        <img class="logo logo-dark" alt="logo" src="{% static 'img/Hexcolor_of_logo.png' %}"/>
+                        <img class="logo logo-light" alt="logo" src="{% static 'img/White_of_logo.png' %}"/>
+                    </a>
+                </div>
+                <div class="col-xs-9 col-sm-10 text-right">
+                    <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs">
+                        <i class="icon icon--sm stack-interface stack-menu"></i>
+                    </a>
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </div>
+    <!--end bar-->
+    <nav id="menu1" class="bar bar--sm bar-1 hidden-xs bar--absolute bar--transparent" data-scroll-class="140px:pos-fixed">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-2 hidden-xs">
+                    <div class="bar__module">
+                        <a href="index.html">
+                            <img class="logo logo-dark" alt="logo" src="{% static 'img/Hexcolor_of_logo.png' %}"/>
+                            <img class="logo logo-light" alt="logo" src="{% static 'img/White_of_logo.png' %}"/>
+                        </a>
+                    </div>
+                    <!--end module-->
+                </div>
+                <div class="col-md-10 col-sm-12 text-right text-left-xs text-left-sm">
+                    <div class="bar__module">
+                        <ul class="menu-horizontal text-left">
+                            <li>
+                              <a href="{% url 'main:home' %}">
+                                  HOME
+                              </a>
+                            </li>
+                            <li>
+                              <a href="{% url 'main:about' %}">
+                                  ABOUT
+                              </a>
+                            </li>
+                            <li>
+                              <a href="{% url 'main:products' %}">
+                                  PRODUCTS
+                              </a>
+                            </li>
+                            <li>
+                              <a href="{% url 'main:portfolio' %}">
+                                  PORTFOLIO
+                              </a>
+                            </li>
+                            <li>
+                              <a href="{% url 'main:contact' %}">
+                                  CONTACT
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </nav>
+    <!--end bar-->
+</div>
+
+<div class="main-container">
+
+    {% block content %}
+    {% endblock %}
+
+  <section class="text-center bg--secondary" style="padding: 3em 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                    <h3 class="bold" style="margin-bottom: 0.60em">NATURAL STONES ARE VERY DURABLE AND RESISTANT</h3>
+                    <p class="lead" style="font-size: 1.25em;">
+                        Since these products are from nature, they are weather resistant and will not warp, freeze, crack or decay in an exterior application in comparison to hardwood, ceramics, laminates and cement.
+                    </p>
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+  </section>
+  <section class="subscribe-form-2 space--xs imagebg" style="padding: 2.5em 0;" data-gradient-bg="#4876BD,#5448BD,#8F48BD,#BD48B1"><canvas id="granim-3" width="1351" height="143"></canvas>
+     <div class="container">
+       <div class="row">
+           <div class="col-md-4">
+               <p class="lead">Over 20,000 satisfied customers</p>
+           </div>
+           <div class="col-md-7 col-md-offset-1">
+               <form method="POST" data-success="Thanks for signing up.  Please check your inbox for a confirmation email." data-error="Please provide your email address." novalidate="novalidate" class="form--active">
+                   {% csrf_token %}
+                   <div class="row">
+                       <div class="col-sm-6">
+                           {{ form2.email }}
+                           <!--<input class="validation-required validate-email" type="email" name="email" placeholder="Email Address">-->
+                       </div>
+                       <div class="col-md-4 col-sm-6">
+                           <button class="btn btn--primary type--uppercase" type="submit" name="submit">Subscribe</button>
+                       </div>
+                   </div>
+                   <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                       <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value="">
+                   </div>
+                   {% if messages %}
+                     <ul class="messages">
+                       {% for message in messages %}
+                         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                          {% if "html_safe" in message.tags %}
+                            {{ message|safe }}
+                          {% else %}
+                            {{ message }}
+                          {% endif %}
+                         </li>
+                       {% endfor %}
+                     </ul>
+                   {% endif %}
+               </form>
+           </div>
+       </div>
+       <!--end of row-->
+   </div>
+   <!--end of container-->
+  </section>
+
+  <footer class="space--sm footer-1 text-center-xs bg--dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="list-inline list--hover">
+                        <li>
+                            <a href="{% url 'main:about' %}">
+                                <span style="font-size: 1.1em;">Our Company</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span style="font-size: 1.1em;">Products</span>
+                            </a>
+                        </li>
+                        <li>
+                          <a href="{% url 'main:portfolio' %}">
+                              <span style="font-size: 1.1em;">Portfolio</span>
+                          </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 text-right text-center-xs">
+                    <ul class="social-list list-inline list--hover">
+                        <li>
+                            <a href="#">
+                                <i class="socicon socicon-facebook icon icon--xs"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="socicon socicon-instagram icon icon--xs"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="{% url 'main:contact' %}" class="btn type--uppercase">
+                                <span class="btn__text">
+                                    Contact Us
+                                </span>
+                    </a>
+                </div>
+            </div>
+            <!--end of row-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <img alt="Image" class="logo" style="max-height: 2.2142857em;" src="{% static 'img/White_of_logo.png' %}"/>
+                    <span class="type--fine-print" style="font-size: 1.0em;">&copy;
+                                <span class="update-year" style="font-size: 1.0em;"></span>  Pakistan Marbles Inc.
+                    </span>
+                    <a class="type--fine-print" style="font-size: 1.0em;" href="#">Privacy Policy</a>
+                    <a class="type--fine-print" style="font-size: 1.0em;" href="#">Legal</a>
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </footer>
+</div>
+<!--<div class="loader"></div>-->
+<a class="back-to-top inner-link" href="#start" data-scroll-class="100vh:active">
+    <i class="stack-interface stack-up-open-big"></i>
+</a>
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'js/flickity.min.js' %}"></script>
+<script src="{% static 'js/easypiechart.min.js' %}"></script>
+<script src="{% static 'js/parallax.js' %}"></script>
+<script src="{% static 'js/typed.min.js' %}"></script>
+<script src="{% static 'js/datepicker.js' %}"></script>
+<script src="{% static 'js/isotope.min.js' %}"></script>
+<script src="{% static 'js/ytplayer.min.js' %}"></script>
+<script src="{% static 'js/lightbox.min.js' %}"></script>
+<script src="{% static 'js/granim.min.js' %}"></script>
+<script src="{% static 'js/jquery.steps.min.js' %}"></script>
+<script src="{% static 'js/countdown.min.js' %}"></script>
+<script src="{% static 'js/twitterfetcher.min.js' %}"></script>
+<script src="{% static 'js/spectragram.min.js' %}"></script>
+<script src="{% static 'js/smooth-scroll.min.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+{% block javascript %}
+{% endblock %}
+</body>
+
+</html>
